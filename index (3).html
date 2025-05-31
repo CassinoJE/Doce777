@@ -1,100 +1,59 @@
-
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Saldo e Saque</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #f1f2f6;
       margin: 0;
-      padding: 20px;
+      padding: 0;
     }
+
     .container {
       max-width: 400px;
       background-color: white;
-      margin: auto;
+      margin: 40px auto;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
+
     .saldo, .saldo-vip {
-      font-size: 18px;
-      margin: 10px 0;
+      font-size: 14px;
+      margin-bottom: 10px;
     }
+
     .saldo span {
       color: green;
       font-weight: bold;
     }
+
     .saldo-vip span {
       color: goldenrod;
       font-weight: bold;
     }
-    #mensagem {
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
-    input[type="text"] {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      margin-bottom: 10px;
-      box-sizing: border-box;
-    }
-    button {
-      padding: 10px;
-      width: 100%;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
+
+    h2 {
+      text-align: center;
+      color: #333;
     }
   </style>
 </head>
 <body>
+
   <div class="container">
-    <div id="mensagem"></div>
-
-    <label for="chavePix">Chave Pix:</label>
-    <input type="text" id="chavePix" placeholder="Digite sua chave Pix" />
-
-    <button onclick="sacar()">Sacar R$ 30,00</button>
+    <h2>Informações de Saldo</h2>
 
     <div class="saldo">
-      <strong>Saldo:</strong> <span id="saldo">R$ 30,00</span>
+      <strong>Saldo:</strong> <span>R$ 30,00</span>
     </div>
+
     <div class="saldo-vip">
       <strong>Saldo VIP:</strong> <span>R$ 1.300,00</span>
     </div>
   </div>
 
-  <script>
-    let saldo = 30.00;
-
-    function sacar() {
-      const chave = document.getElementById("chavePix").value.trim();
-      const mensagem = document.getElementById("mensagem");
-
-      if (!chave) {
-        mensagem.style.color = "red";
-        mensagem.textContent = "Digite uma chave Pix.";
-        return;
-      }
-
-      if (saldo < 30) {
-        mensagem.style.color = "red";
-        mensagem.textContent = "Saldo insuficiente.";
-        return;
-      }
-
-      saldo -= 30;
-      document.getElementById("saldo").textContent = `R$ ${saldo.toFixed(2).replace('.', ',')}`;
-      mensagem.style.color = "green";
-      mensagem.textContent = "Saque realizado com sucesso!";
-    }
-  </script>
 </body>
 </html>
